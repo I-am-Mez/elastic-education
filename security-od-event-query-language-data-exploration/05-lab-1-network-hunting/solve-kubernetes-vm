@@ -1,6 +1,0 @@
-#!/bin/bash
-set -euxo pipefail
-
-curl -sf http://localhost:8008/challenges > /dev/null || true
-
-/opt/workshops/instruqt-ctfd.sh --solve

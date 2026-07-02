@@ -1,4 +1,0 @@
-#!/bin/bash
-set -euxo pipefail
-
-/opt/workshops/instruqt-ctfd.sh --start lab3
