@@ -1,0 +1,39 @@
+#!/bin/bash
+
+# Set up environment variables
+echo 'ELASTICSEARCH_USERNAME=elastic' >> /root/.env
+kubectl get secret elasticsearch-es-elastic-user -n default -o go-template='ELASTICSEARCH_PASSWORD={{.data.elastic | base64decode}}' >> /root/.env
+echo '' >> /root/.env
+export $(cat /root/.env | xargs)
+
+check_rule() {
+  curl -X GET "http://localhost:30001/api/detection_engine/rules/_find" > rule.txt
+}
+
+attempts=0
+max_attempts=3
+
+while [[ $attempts -lt $max_attempts ]]; do
+  response=$(check_rule)
+  rule_size=$(stat -c %s rule.txt)
+  
+  echo "Rule File Size: $rule_size"
+  
+  if [[ "$rule_size" -gt 1000 ]]; then
+    echo "Rule was created"
+    exit 0
+  fi
+  
+  if [[ "$solve" == "true" ]]; then
+    ((attempts++))
+    if [[ $attempts -lt $max_attempts ]]; then
+      echo "Attempt $attempts: No rule found yet. Retrying in 5 seconds"
+      sleep 5
+    fi
+  else
+    break
+  fi
+done
+
+fail-message "No rules created."
+exit 1

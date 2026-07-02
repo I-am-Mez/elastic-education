@@ -1,0 +1,38 @@
+slug: security-ws-advanced-esql-operations-for-security-analysts
+developers:
+  - nicholas.mezhir@elastic.co
+elastic-stack:
+  current-version: 9.3.0
+  versions-allowed:
+    - 9.3.0
+content-scope:
+  description: Expand your Elasticsearch Query Language (ES|QL) skills with advanced commands, functions, and operations for threat hunting, detection, and prevention. You will work with data enrichment, extraction, and conditional querying practices, and create Lens visualizations to analyze and present security data.
+  prerequisites: 'Getting Started: ES|QL for Security Analysts'
+learning-objective:
+  track: Utilize advanced features of the Elasticsearch Query Language (ES|QL) to conduct security threat investigations.
+  lo1: Utilize LOOKUP JOINs function to aggregate and query on data from multiple indices in order to identify potential threats on high priority devices.
+  lo2: Utilize GROK and DISSECT functions to extract data from unformatted fields in order to highlight key pieces of security information.
+  lo3: Utilize the INLINE STATS function in order to perform mathematical operations while retaining data from the source command to identify potential infrastructure risks.
+  lo4: Utilize CASE statements in order to perform conditional queries based on security data to identify key network infrastructure information.
+  lo5: Utilize the DATE_DIFF function in order to identify the duration between security events to determine attack timelines.
+  lo6: Create a visualization panel using ES|QL in order to highlight key security data.
+target-audience:
+  notes: 'Security Operations Engineer, Security Analyst Network, Endpoint Analyst, Threat Hunter, Threat Intelligence Analyst'
+our-named-tags:
+  module-name: advanced-esql-operations-for-security-analysts
+  status: ready-for-production
+  content-type: ws
+  module-version: 1.0.0
+  solution: security
+  elastic-version: 9.3.0
+  category-name: intermediate
+  team: curriculum
+instruqt-tags:
+  - status/production
+  - team/curriculum
+  - category-name/intermediate
+  - module-version/1.0.0
+  - content-type/ws
+  - elastic-version/9.3.0
+  - module-name/advanced-esql-operations-for-security-analysts
+  - solution/security

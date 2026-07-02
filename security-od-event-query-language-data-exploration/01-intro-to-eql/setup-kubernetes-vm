@@ -1,0 +1,40 @@
+#!/bin/bash
+
+# /opt/workshops/elastic-view.sh -v security
+
+/opt/workshops/elastic-llm.sh -m gpt-4o -k true
+# /opt/workshops/elastic-llm.sh -m cohere -k true
+
+# # # load ELSER, but don't start it
+# /opt/workshops/elastic-semantic.sh -e true -s false
+
+#Provision LLM connector using anthropic model and setup knowledgebase
+#/opt/workshops/elastic-llm.sh -m anthropic
+
+/opt/workshops/elastic-snapshot.sh \
+    -p esa-trimmed-v6 \
+    -b instruqt_snapshots \
+    -c education \
+    -n esa \
+    -s esa-trimmed-v6 \
+    -g false
+
+curl -X POST "http://kubernetes-vm:30001/api/kibana/settings" \
+  -H "Content-Type: application/json" \
+  -H "kbn-xsrf: true" \
+  -H "Authorization: Basic $ELASTICSEARCH_AUTH_BASE64" \
+  --data-binary @- <<'JSON'
+{
+  "changes": {
+    "timepicker:quickRanges": "[{\"from\":\"2022-02-01T00:00:00.000Z\",\"to\":\"2022-03-31T23:59:59.999Z\",\"display\":\"BLISTER\"},{\"from\":\"now/d\",\"to\":\"now/d\",\"display\":\"Today\"},{\"from\":\"now/w\",\"to\":\"now/w\",\"display\":\"This week\"},{\"from\":\"now-15m\",\"to\":\"now\",\"display\":\"Last 15 minutes\"},{\"from\":\"now-1h\",\"to\":\"now\",\"display\":\"Last 1 hour\"},{\"from\":\"now-7d/d\",\"to\":\"now\",\"display\":\"Last 7 days\"},{\"from\":\"now-30d/d\",\"to\":\"now\",\"display\":\"Last 30 days\"}]",
+    "timepicker:timeDefaults": "{\"from\":\"2022-02-01T00:00:00.000Z\",\"to\":\"2022-03-31T23:59:59.999Z\"}",
+    "timepicker:refreshIntervalDefaults": "{\"pause\":true,\"value\":0}"
+  }
+}
+JSON
+
+/opt/workshops/instruqt-ctfd.sh --enable --import security-eql
+
+# Call CTFd script and import proper labs
+#/opt/workshops/instruqt-ctfd.sh --enable --import security-eql --start lab1 lab2 lab3 lab4
+
