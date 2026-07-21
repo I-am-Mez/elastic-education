@@ -1,0 +1,16 @@
+[
+  {
+    "id": "advanced-esql-operations-for-security-analysts",
+    "title": "Advanced ES|QL Operations for Security Analysts",
+    "description": "Expand your ES|QL skills with advanced commands and functions for threat hunting, detection, and prevention.",
+    "status": "available",
+    "url": "https://github.com/I-am-Mez/elastic-education/tree/main/packs/advanced-esql-operations-for-security-analysts"
+  },
+  {
+    "id": "event-query-language-data-exploration",
+    "title": "Event Query Language - Full",
+    "description": "Learn EQL syntax and use cases for finding chains of events in Elastic security logs.",
+    "status": "available",
+    "url": "https://github.com/I-am-Mez/elastic-education/tree/main/packs/event-query-language-data-exploration"
+  }
+]
