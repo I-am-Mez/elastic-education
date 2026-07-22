@@ -1,0 +1,12 @@
+{
+  "name": "advanced-esql-operations-for-security-analysts",
+  "description": "Advanced ES|QL Operations for Security Analysts",
+  "skills": [
+    { "id": "lookup-joins", "path": "skills/lookup-joins/SKILL.md" },
+    { "id": "dissect-grok", "path": "skills/dissect-grok/SKILL.md" },
+    { "id": "inline-stats", "path": "skills/inline-stats/SKILL.md" },
+    { "id": "case", "path": "skills/case/SKILL.md" },
+    { "id": "date-diff", "path": "skills/date-diff/SKILL.md" },
+    { "id": "esql-visualizations", "path": "skills/esql-visualizations/SKILL.md" }
+  ]
+}
