@@ -39,7 +39,9 @@ Create an ES|QL query that does the following:
 - Uses a CASE function in order to create a new field called `OS` that uses the `file.path` field to determine if a device is a **Windows** or **Unix** device
 - Calculates the amount of times each `OS` appears
 
-Using the above query, answer questions in **Lab 4** in the [button label="Questions"](tab-1) tab.
+Using the above query, answer the following:
+## Q1: How many events are associated with Windows devices?
+## Q2: How many events are associated with Unix devices?
 
 > [!IMPORTANT]
 > You **MUST** use the `file.path` field for this, using other fields will return different results.
@@ -54,10 +56,10 @@ Hints
 - All of our Windows devices appear to only be using a **C: drive**
 - Unix directory structure always starts with a **/**
 
-Solution
+Correct query
 ===
 
-The following query will provide you the answers in **Lab 4**:
+The following query will provide you the answers:
 
 ```copy
 FROM logs-*
@@ -68,6 +70,12 @@ FROM logs-*
 | STATS X = COUNT(OS) by OS
 ```
 
+Solutions
+===
+
+A1: 4,232
+
+A2: 193
 
 Conclusion
 ===

@@ -40,16 +40,18 @@ Create an ES|QL query that does the following:
 - Finds the average `event.duration` of each `network.protocol`
 - Maintains the other fields in each of the logs
 
-Using the above query, answer questions in **Lab 3** in the [button label="Questions"](tab-1) tab.
+Using the above query, answer the following:
+## Q1: What is the `network.protocol` associated with the longest average connection duration?
+## Q2: What is the `network.protocol` associated with the shortest average connection duration? (You will have to change your query)
 
 > [!NOTE]
 > You may need to use the [ES|QL documentation](https://www.elastic.co/docs/reference/query-languages/esql).
 
 
-Solution
+Correct query
 ===
 
-The following query will provide you the answers in **Lab 3**:
+The following query will provide you the answers:
 
 ```copy
 FROM logs-*
@@ -58,6 +60,13 @@ FROM logs-*
 | INLINE STATS averageEventDuration = AVG(event.duration) by network.protocol
 | SORT averageEventDuration DESC
 ```
+
+Solutions
+===
+
+A1: http
+
+A2: tls
 
 Conclusion
 ===

@@ -43,7 +43,11 @@ Create an ES|QL query that does the following:
 - Removes **null** values in `network.protocol`
 - Shows only `host.name`, `network.protocol`, and `asset.criticality` in the final results
 
-Using the above query, answer questions in **Lab 1** in the [button label="Questions"](tab-1) tab.
+Using the above query, answer the following:
+## Q1: Which `host.name` is being connected to?
+## Q2: What is this host's **criticality level**
+## Q3: Which protocol appears to be used less by this device?
+
 
 > [!NOTE]
 > The term "external IP ranges" in this case refers to "any ranges that are **not** used as private IP space nor loopback addresses."
@@ -60,10 +64,10 @@ Hints
 - Finding external IP ranges can be done with the following: `WHERE NOT CIDR_MATCH(source.ip, "10.0.0.1/8", "192.168.0.1/16", "172.16.0.1/12", "127.0.0.1/8")`
 
 
-Solution
+Correct query
 ===
 
-The following query will provide you the answers in **Lab 1**:
+The following query will provide you the answers:
 
 ```copy
 from logs-*
@@ -73,6 +77,15 @@ from logs-*
 | WHERE network.protocol IS NOT NULL
 | KEEP network.protocol, host.name, asset.criticality
 ```
+
+Solutions
+===
+
+A1: web02
+
+A2: high_impact
+
+A3: dhcpv4
 
 Conclusion
 ===

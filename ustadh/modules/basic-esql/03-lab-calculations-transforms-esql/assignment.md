@@ -32,7 +32,13 @@ Math and transformations with ES|QL
 - Run your ES|QL query in either **Discover** or **Timelines**
 
 # Challenge:
-Answer questions in **Lab 3** in the [button label="Questions"](tab-1) tab.
+Create ES|QL queries that do the following:
+- Use the **STATS** command along with aggregation functions to perform mathematical operations on data
+- Use the **EVAL** command with date functions to transform timestamp data into more meaningful values
+
+Using the above commands, answer the following:
+## Q1: Create a query, using the `logs-*` index pattern, to find the total number of `source.bytes`.
+## Q2: Create a query, using the `logs-*` index pattern, to pull the day of the week out of each `@timestamp` field. Then, get a count of how many days of the week we have data. How many different days of the week are there data?
 
 > [!NOTE]
 > You may need to use the [ES|QL documentation](https://www.elastic.co/docs/reference/query-languages/esql).
@@ -41,15 +47,34 @@ Answer questions in **Lab 3** in the [button label="Questions"](tab-1) tab.
 Hints
 ===
 
-Each question in the [button label="Questions"](tab-1) tab has hints built into the question menu.
+- The `SUM()` function within `STATS` will total all values of a numeric field
+- `DATE_EXTRACT()` can pull specific parts from a timestamp (e.g. `"day_of_week"`)
+- `STATS COUNT(*) BY field` groups and counts by a specific field, with one row per unique value
 
-> [!IMPORTANT]
-> The final hint will be the query needed to answer the question
-
-Solution
+Correct query
 ===
 
-The final hint in each question in the [button label="Questions"](tab-1) tab will provide you with the query you need to answer.
+The following queries will provide you the answers:
+
+**Q1:**
+```copy
+FROM logs-*
+| STATS SUM(source.bytes)
+```
+
+**Q2:**
+```copy
+FROM logs-*
+| EVAL dayOfWeek = DATE_EXTRACT("day_of_week", @timestamp)
+| STATS count = COUNT(*) BY dayOfWeek
+```
+
+Solutions
+===
+
+A1: 193,659,918,957,470
+
+A2: 6
 
 Conclusion
 ===

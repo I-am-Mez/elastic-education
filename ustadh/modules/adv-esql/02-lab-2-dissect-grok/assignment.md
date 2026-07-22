@@ -40,22 +40,24 @@ Create an ES|QL query that does the following:
 - Finds a count of results per each `os`
 - Sorts the results in ascending order
 
-Using the above query, answer questions **1 and 2** in **Lab 2** in the [button label="Questions"](tab-1) tab.
+Using the above query, answer the following:
+## Q1: What is the operating system?
+## Q2: Why is this something we *may* need to worry about?
 
 > [!NOTE]
 > You may need to use the [ES|QL documentation](https://www.elastic.co/docs/reference/query-languages/esql).
 
 
-DISSECT hints
+DISSECT Hints
 ===
 
 - The `STARTS_WITH()` function will be needed
 - This lab will require you to know a bit about user agent fields and what they mean. Or you could search for what they mean...
 
-DISSECT solution
+DISSECT Correct query
 ===
 
-The following query will provide you the answers in **Lab 2 - Questions 1 and 2**:
+The following query will provide you the answers:
 
 ```copy
 from logs*
@@ -64,6 +66,13 @@ from logs*
 | STATS x = COUNT(*) by os
 | SORT x ASC
 ```
+
+DISSECT Solutions
+===
+
+A1: Windows 7
+
+A2: Older browsers are un-supported and as such do not get security updates; this could introduce a vulnerability.
 
 GROK
 ===
@@ -82,22 +91,24 @@ Create an ES|QL query that does the following:
 - Shows only the file name and drive
 - Summarizes the amount of each file name
 
-Using the above query, answer questions **3 and 4** in **Lab 2** in the [button label="Questions"](tab-1) tab.
+Using the above query, answer the following:
+## Q3: What is the most commonly accessed file according to our query?
+## Q4: Why could we still see null results for this query even after searching for where `file.path` is not null?
 
 > [!NOTE]
 > You may need to use the [ES|QL documentation](https://www.elastic.co/docs/reference/query-languages/esql).
 
 
-GROK hints
+GROK Hints
 ===
 
 - You may want to use the **GROK Debugger** found in **Dev tools** to test your GROK pattern
 - There are many GROK pattern resources to be found on the internet if you are needing a reference
 
-GROK solution
+GROK Correct query
 ===
 
-The following query will provide you the answers in **Lab 2 - Questions 3 and 4**:
+The following query will provide you the answers:
 
 ```copy
 FROM logs-*
@@ -107,6 +118,13 @@ FROM logs-*
 | STATS count = COUNT(*) by fileName
 | SORT count DESC
 ```
+
+GROK Solutions
+===
+
+A3: store.db-journal
+
+A4: Linux files would not populate here since we used a GROK pattern made for windows file structure
 
 Conclusion
 ===

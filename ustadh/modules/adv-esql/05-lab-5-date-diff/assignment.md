@@ -41,7 +41,10 @@ Create an ES|QL query that does the following:
 - Finds the difference, in hours, between the first and last instance of each `file.name` being seen
 - Displays only the file name, first and last seen times, and the difference between the two
 
-Using the above query, answer questions in **Lab 5** in the [button label="Questions"](tab-1) tab.
+Using the above query, answer the following:
+## Q1: How many hours went by between the first and last execution of `Ttickbot.exe`?
+## Q2: How many minutes went by between the first and last execution of `Tsickbot.exe`? (You will have to change your query)
+## Q3: How many seconds went by between the first and last execution of `Trickbot.exe`? (You will have to change your query)
 
 > [!NOTE]
 > You may need to use the [ES|QL documentation](https://www.elastic.co/docs/reference/query-languages/esql).
@@ -54,10 +57,10 @@ Hints
 - A minimum value of `@timestamp` would be the first time something is seen
 - You may need to change the **unit** of time to find each question
 
-Solution
+Correct query
 ===
 
-The following query will provide you the answers in **Lab 5**:
+The following query will provide you the answers:
 
 ```copy
 FROM logs-*
@@ -67,6 +70,14 @@ FROM logs-*
 | KEEP file.name, first_seen, last_seen, difference
 ```
 
+Solutions
+===
+
+A1: 23
+
+A2: 1
+
+A3: 12
 
 Conclusion
 ===

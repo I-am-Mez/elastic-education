@@ -31,8 +31,14 @@ Getting data with ES|QL
 - Run your ES|QL query in either **Discover** or **Timelines**
 
 # Challenge:
-Answer questions in **Lab 1** in the [button label="Questions"](tab-1) tab.
+Create ES|QL queries that do the following:
+- Use the **FROM** command to retrieve data from the `logs-*` index pattern
+- Use the **FROM** command to retrieve data from the `filebeat-*` index pattern
 
+Using the above queries, answer the following:
+## Q1: Create a query to pull in data from the `logs-*` index pattern. How many documents are present?
+## Q2: Create a query to pull in data from the `filebeat-*` index pattern. How many documents are present?
+## Q3: Why are we only seeing 1000 results with the above queries?
 
 > [!NOTE]
 > You may need to use the [ES|QL documentation](https://www.elastic.co/docs/reference/query-languages/esql).
@@ -40,15 +46,32 @@ Answer questions in **Lab 1** in the [button label="Questions"](tab-1) tab.
 Hints
 ===
 
-Each question in the [button label="Questions"](tab-1) tab has hints built into the question menu.
+- The `FROM` command is used to specify which index to query in ES|QL
+- Running a query without a `LIMIT` command still applies a default result cap
 
-> [!IMPORTANT]
-> The final hint will be the query needed to answer the question
-
-Solution
+Correct query
 ===
 
-The final hint in each question in the [button label="Questions"](tab-1) tab will provide you with the query you need to answer.
+The following queries will provide you the answers:
+
+**Q1:**
+```copy
+FROM logs-*
+```
+
+**Q2:**
+```copy
+FROM filebeat-*
+```
+
+Solutions
+===
+
+A1: 1,000
+
+A2: 1,000
+
+A3: The default limit for ES|QL queries is 1,000.
 
 Conclusion
 ===

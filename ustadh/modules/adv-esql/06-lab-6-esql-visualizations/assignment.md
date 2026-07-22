@@ -42,7 +42,10 @@ Create an ES|QL visualization that does the following:
 - Shows only `host.name`, `network.protocol`, and `asset.criticality` in the final results
 - Summarizes the amount of logs per `host.name` and `network.protocol`
 
-Using the above visualization, answer questions in **Lab 6** in the [button label="Questions"](tab-1) tab.
+Using the above visualization, answer the following:
+## Q1: How many **high impact** or **extreme impact** devices were connected to by external network ranges?
+## Q2: What is the name of that device?
+## Q3: How many http connections did the device see?
 
 > [!NOTE]
 > You may need to use the [ES|QL documentation](https://www.elastic.co/docs/reference/query-languages/esql).
@@ -53,10 +56,10 @@ Hints
 
 - This query will be *very* similar to the query used in **Lab 1**
 
-Solution
+Correct query
 ===
 
-The following query will provide you the answers in **Lab 6**:
+The following query will provide you the answers:
 
 ```copy
 from logs-*
@@ -68,6 +71,14 @@ from logs-*
 | STATS COUNT(*) by host.name, network.protocol
 ```
 
+Solutions
+===
+
+A1: 1
+
+A2: web02
+
+A3: 5,946
 
 Conclusion
 ===

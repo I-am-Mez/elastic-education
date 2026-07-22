@@ -31,7 +31,15 @@ Threat hunting with ES|QL
 - Run your ES|QL query in either **Discover** or **Timelines**
 
 # Challenge:
-Answer questions in **Lab 5** in the [button label="Questions"](tab-1) tab.
+Create ES|QL queries that do the following:
+- Use the **IN** operator to filter for multiple values at once
+- Use the **KEEP** command to focus on relevant fields
+- Use the **STATS** command to summarize activity per user and file
+
+Using the above commands, answer the following:
+## Q1: Create a query, using the `logs-*` index pattern, to find where `file.name` is either `Trickbot.exe`, `Ttickbot.exe`, or `Tsickbot.exe`. How many results do you get?
+## Q2: Add a command to your query to show only `file.name` and `user.name`. Which user only shows up 1 time?
+## Q3: Add a command to your query to find how many times each user opened each file. How many times did the `SYSTEM` user open `Trickbot.exe`?
 
 > [!NOTE]
 > You may need to use the [ES|QL documentation](https://www.elastic.co/docs/reference/query-languages/esql).
@@ -40,18 +48,46 @@ Answer questions in **Lab 5** in the [button label="Questions"](tab-1) tab.
 Hints
 ===
 
-Each question in the [button label="Questions"](tab-1) tab has hints built into the question menu.
+- The `IN` operator matches a field against a list of values: `WHERE field IN ("val1", "val2", "val3")`
+- `STATS COUNT(*) BY field1, field2` groups results by multiple fields simultaneously
+- Replace the `KEEP` command with `STATS` to aggregate instead of filtering displayed fields
 
-> [!IMPORTANT]
-> The final hint will be the query needed to answer the question
-
-Solution
+Correct query
 ===
 
-The final hint in each question in the [button label="Questions"](tab-1) tab will provide you with the query you need to answer.
+The following queries will provide you the answers:
+
+**Q1:**
+```copy
+FROM logs-*
+| WHERE file.name IN ("Trickbot.exe", "Ttickbot.exe", "Tsickbot.exe")
+```
+
+**Q2:**
+```copy
+FROM logs-*
+| WHERE file.name IN ("Trickbot.exe", "Ttickbot.exe", "Tsickbot.exe")
+| KEEP file.name, user.name
+```
+
+**Q3:**
+```copy
+FROM logs-*
+| WHERE file.name IN ("Trickbot.exe", "Ttickbot.exe", "Tsickbot.exe")
+| STATS count = COUNT(*) BY user.name, file.name
+```
+
+Solutions
+===
+
+A1: 41
+
+A2: NETWORK SERVICE
+
+A3: 0
 
 Conclusion
 ===
-In this lab, you used **LOOKUP JOIN** to aggregate and query on data from multiple indices.
+In this lab, you used **ES|QL** to perform a threat hunting exercise.
 
-For further information, refer to the [LOOKUP JOIN documentation](https://www.elastic.co/docs/reference/query-languages/esql/esql-lookup-join).
+For further information, refer to the [ES|QL documentation](https://www.elastic.co/docs/reference/query-languages/esql).
