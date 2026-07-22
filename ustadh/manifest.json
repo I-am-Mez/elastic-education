@@ -60,25 +60,25 @@
           "id": "02-lab-data-manipulation-esql",
           "title": "Lab: Data manipulation with ES|QL",
           "type": "lab",
-          "file": "modules/basic-esql/02-data-manipulation-esql/assignment.md"
+          "file": "modules/basic-esql/02-lab-data-manipulation-esql/assignment.md"
         },
         {
           "id": "03-lab-calculations-transforms-esql",
           "title": "Lab: Calculations and transforms with ES|QL",
           "type": "lab",
-          "file": "modules/basic-esql/03-calculations-transforms-esql/assignment.md"
+          "file": "modules/basic-esql/03-lab-calculations-transforms-esql/assignment.md"
         },
         {
           "id": "04-lab-aggregations-esql",
           "title": "Lab: Aggregations with ES|QL",
           "type": "lab",
-          "file": "modules/basic-esql/04-aggregations-esql/assignment.md"
+          "file": "modules/basic-esql/04-lab-aggregations-esql/assignment.md"
         },
         {
           "id": "05-lab-threat-hunting-esql",
           "title": "Lab: Threat hunting with ES|QL",
           "type": "lab",
-          "file": "modules/basic-esql/05-threat-hunting-esql/assignment.md"
+          "file": "modules/basic-esql/05-lab-threat-hunting-esql/assignment.md"
         }
       ]
     }
