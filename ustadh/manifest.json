@@ -1,0 +1,86 @@
+{
+  "modules": [
+    {
+      "id": "adv-esql",
+      "title": "Advanced ES|QL Operations for Security Analysts",
+      "type": "exercises",
+      "description": "In this module, you will use advanced ES|QL operations to analyze security data and identify potential threats.",
+      "topics": [
+        {
+          "id": "01-lab-1-lookup-joins",
+          "title": "Lab 1: LOOKUP JOINs",
+          "type": "lab",
+          "file": "modules/adv-esql/01-lab-1-lookup-joins/assignment.md"
+        },
+        {
+          "id": "02-lab-2-dissect-grok",
+          "title": "Lab 2: DISSECT and GROK",
+          "type": "lab",
+          "file": "modules/adv-esql/02-lab-2-dissect-grok/assignment.md"
+        },
+        {
+          "id": "03-lab-3-inline-stats",
+          "title": "Lab 3: INLINE STATS",
+          "type": "lab",
+          "file": "modules/adv-esql/03-lab-3-inline-stats/assignment.md"
+        },
+        {
+          "id": "04-lab-4-case",
+          "title": "Lab 4: CASE",
+          "type": "lab",
+          "file": "modules/adv-esql/04-lab-4-case/assignment.md"
+        },
+        {
+          "id": "05-lab-5-date-diff",
+          "title": "Lab 5: DATE_DIFF",
+          "type": "lab",
+          "file": "modules/adv-esql/05-lab-5-date-diff/assignment.md"
+        },
+        {
+          "id": "06-lab-6-esql-visualizations",
+          "title": "Lab 6: ES|QL Visualizations",
+          "type": "lab",
+          "file": "modules/adv-esql/06-lab-6-esql-visualizations/assignment.md"
+        }
+      ]
+    },
+    {
+      "id": "basic-esql",
+      "title": "Getting started: ES|QL for Security",
+      "type": "skill",
+      "description": "Learn to write your first security-focused queries using ES|QL, Elasticsearch's piped query language for working with data at scale.",
+      "topics": [
+        {
+          "id": "01-lab-esql-basics",
+          "title": "Lab: ES|QL basics",
+          "type": "lab",
+          "file": "modules/basic-esql/01-lab-esql-basics/assignment.md"
+        },
+        {
+          "id": "02-lab-data-manipulation-esql",
+          "title": "Lab: Data manipulation with ES|QL",
+          "type": "lab",
+          "file": "modules/basic-esql/02-data-manipulation-esql/assignment.md"
+        },
+        {
+          "id": "03-lab-calculations-transforms-esql",
+          "title": "Lab: Calculations and transforms with ES|QL",
+          "type": "lab",
+          "file": "modules/basic-esql/03-calculations-transforms-esql/assignment.md"
+        },
+        {
+          "id": "04-lab-aggregations-esql",
+          "title": "Lab: Aggregations with ES|QL",
+          "type": "lab",
+          "file": "modules/basic-esql/04-aggregations-esql/assignment.md"
+        },
+        {
+          "id": "05-lab-threat-hunting-esql",
+          "title": "Lab: Threat hunting with ES|QL",
+          "type": "lab",
+          "file": "modules/basic-esql/05-threat-hunting-esql/assignment.md"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+#!/bin/bash
+
+#### ENV and Cluster Setup ######################################################
+
+export $(curl -s http://kubernetes-vm:9000/env | xargs)
+
+set -euo pipefail
+
+# ── CTFd (optional) ──
+/opt/workshops/instruqt-ctfd.sh --enable --import dev-esql-basics --start lab5

@@ -1,0 +1,48 @@
+slug: security-sk-getting-started-esql-for-security
+id: 1drygd8vcxxv
+title: 'Getting started: ES|QL for Security'
+description: Learn to write your first security-focused queries using ES|QL, Elasticsearch’s
+  piped query language for working with data at scale. Retrieve security data with
+  source and processing commands, then refine results with filtering, sorting, and
+  limiting in the Kibana Security app to identify notable patterns or events.
+icon: https://brand.elastic.co/api/asset/download.png?asset_id=191046140&auth=aW8G9BuwHJgTWmmGjy5OYw
+tags:
+- team/curriculum
+- status/development
+- module-version/0.0.1
+- elastic-version/9.4.2
+- solution/security
+- module-name/esql-for-security
+- content-type/sk
+- category-name/getting-started
+owner: elastic-education
+developers:
+- enrique.kortright@elastic.co
+- james.murray@elastic.co
+- liz.mcpherson@elastic.co
+- mark.laney@elastic.co
+- steven.twardzik@elastic.co
+- carrie.wang@elastic.co
+- joseph.delarosa@elastic.co
+- douglas.sentz@elastic.co
+- yulia.genkina@elastic.co
+- sheryl.sarokas@elastic.co
+- karina.compton@elastic.co
+- niki.watson@elastic.co
+- rachael.wurth@elastic.co
+- nicholas.mezhir@elastic.co
+show_timer: true
+skipping_enabled: true
+idle_timeout: 3600
+timelimit: 10800
+sandbox_preset: managed-elastic-9-3-0
+lab_config:
+  sidebar_enabled: true
+  feedback_recap_enabled: true
+  feedback_tab_enabled: false
+  loadingMessages: true
+  override_challenge_layout: false
+  hideStopButton: false
+  default_layout: AssignmentLeft
+checksum: "17102706319855577203"
+enhanced_loading: true
